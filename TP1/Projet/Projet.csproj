@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F8B6E5B2-0511-4522-BB20-69E775EEA850}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Projet</RootNamespace>
+    <RootNamespace>TP1</RootNamespace>
     <AssemblyName>Projet</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -39,6 +39,7 @@
     <Compile Include="DataFrame.cs" />
     <Compile Include="EStation.cs" />
     <Compile Include="Frame.cs" />
+    <Compile Include="FrameBuffer.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
