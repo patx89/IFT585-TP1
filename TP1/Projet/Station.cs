@@ -18,7 +18,7 @@ namespace TP1
             }
         }
 
-        public CircularBuffer _buffer
+        public CircularBuffer<Frame> _buffer
         {
             get
             {

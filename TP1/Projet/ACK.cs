@@ -7,5 +7,11 @@ namespace TP1
 {
     public class ACK : Frame
     {
+
+        public ACK(int id)
+            : base(id)
+        {
+
+        }
     }
 }

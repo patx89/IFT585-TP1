@@ -7,5 +7,10 @@ namespace TP1
 {
     public class DataFrame : Frame
     {
+        public DataFrame(int id)
+            : base(id)
+        {
+
+        }
     }
 }
