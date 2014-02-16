@@ -8,6 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Projet\FrameBuffer.cs = Projet\FrameBuffer.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8F8FCEC-AC0B-4905-BE57-025943DE2AC9}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\Projects\IFT585-TP1\IFT585-TP1\BootProcess.cs = ..\..\..\..\..\Projects\IFT585-TP1\IFT585-TP1\BootProcess.cs
+		..\..\..\..\..\Projects\IFT585-TP1\IFT585-TP1\Datalink.cs = ..\..\..\..\..\Projects\IFT585-TP1\IFT585-TP1\Datalink.cs
+		..\..\..\..\..\Projects\IFT585-TP1\IFT585-TP1\Physical.cs = ..\..\..\..\..\Projects\IFT585-TP1\IFT585-TP1\Physical.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,8 +26,12 @@ Global
 		{F8B6E5B2-0511-4522-BB20-69E775EEA850}.Release|x86.ActiveCfg = Release|x86
 		{F8B6E5B2-0511-4522-BB20-69E775EEA850}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
+<<<<<<< HEAD
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+=======
+	GlobalSection(NestedProjects) = preSolution
+>>>>>>> Stash
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Projet\Projet.csproj
