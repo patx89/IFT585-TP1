@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Threading;
+using System.Configuration;
 
 namespace TP1
 {
 	public class Network
 	{
 		//Sender part
-		public Byte[] sourceToDestination;
-		public Byte[] destinationFromSource;
+		public Byte[] sourceToDestination = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
+		public Byte[] destinationFromSource = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
 		//Receiver part
-		public Byte[] sourceFromDestination;
-		public Byte[] destinationToSource;
+		public Byte[] sourceFromDestination = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
+		public Byte[] destinationToSource = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
 		public bool sourceCanSend = true;
 		public bool sourceCanReceive = false;
 		public bool destinationCanSend = true;
@@ -81,6 +82,7 @@ namespace TP1
 			while (true) {
 				if (!sourceCanSend && !destinationCanReceive) {
 					Thread.Sleep (integer.Next (0, 10) * 1000);
+					Console.WriteLine ("Network has transfered the data - SourceToDestination");
 					/* 
 					 * testing timeOut of the packet, do not set if the packet is expired
 					 * ? Do we have to remove it from the buffer of the source then?
@@ -99,6 +101,7 @@ namespace TP1
 			while (true) {
 				if (!destinationCanSend && !sourceCanReceive) {
 					Thread.Sleep (integer.Next (0, 10) * 1000);
+					Console.WriteLine ("Network has transfered the data - DestinationToSource");
 					/* 
 					 * testing timeOut of the packet, do not set if the packet is expired
 					 * ? Do we have to remove it from the buffer of the source then?

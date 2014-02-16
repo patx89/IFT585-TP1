@@ -10,9 +10,9 @@ namespace TP1
 	{
 		protected Network network;
 		//		protected CircularBuffer<Frame> buffer = new FrameBuffer (int.Parse (ConfigurationManager.AppSettings ["BufferSize"]));
-		protected CircularBuffer<byte[]> buffer = new CircularBuffer<byte[]> (int.Parse (ConfigurationManager.AppSettings ["BufferSize"]));
+		protected CircularBuffer<DataFrame> buffer = new CircularBuffer<DataFrame> (int.Parse (ConfigurationManager.AppSettings ["BufferSize"]));
 		// number of bytes for each packets
-		protected const int PACKETSIZE = 15;
+		protected int PACKETSIZE = int.Parse (ConfigurationManager.AppSettings ["FrameSize"]);
 		// number of packet in the buffer
 		public Station (Network network)
 		{
