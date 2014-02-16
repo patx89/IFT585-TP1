@@ -2,11 +2,17 @@ using System;
 
 namespace TP1
 {
-	class MainClass
+	public class MainClass
 	{
+        public enum Protocols
+        {
+            Hamming, Parity
+        }
+
 		public static void Main (string[] args)
 		{
 			Console.WriteLine ("Hello World!");
+            for (; ; ) ;
 		}
 	}
 }
