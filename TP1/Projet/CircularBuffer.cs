@@ -168,7 +168,8 @@ namespace TP1
         {   
             int startingPos = _readPos;
             int elementPos = -1;
-                        
+
+
             if (!IsEmpty)
             {
                 do
@@ -216,6 +217,7 @@ namespace TP1
                     if (ElementAdded != null) ElementAdded(this, new CircularBufferEventArgs(element));
                     if (Count == Length) IsFull = true;
                     IsEmpty = false;
+                    _writePos = (_writePos + 1) % Length;
                     return true;
                 }
                 _writePos = (_writePos + 1) % Length;
@@ -229,7 +231,7 @@ namespace TP1
         {
             T elementToRemove = default(T);
 
-            if (values[index] != null)
+            if (!IsDefaultValue(values[index]))
             {
                 elementToRemove = values[index];
                 values[index] = default(T);
