@@ -10,7 +10,7 @@ namespace TP1
 		public DataFrame (int id)
             : base (id)
 		{
-
+            MustSend = true;
 		}
 
 		public DateTime Date { get; set; }
@@ -22,6 +22,11 @@ namespace TP1
 		public Program.Protocols Protocol { get; set; }
 		//Chksum will be generated
 		public Byte[] Data { get; set; }
+
+        /// <summary>
+        /// Will be used to know if the Frame need to be sent.
+        /// </summary>
+        public bool MustSend { get; set; }
 
 		public static DataFrame FromBytes (Byte[] input)
 		{

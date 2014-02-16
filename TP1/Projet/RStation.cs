@@ -38,12 +38,12 @@ namespace TP1
 			FileStream myFile;
 			BinaryWriter fileWriter;
 
-			if (network.destinationCanReceive) {
+			if (network.DestinationCanReceive) {
 				receivedPacket = network.destinationFromSource;
 				frame = DataFrame.FromBytes (receivedPacket);
 				Console.WriteLine ("I have receive the packet with ID {0}", frame.ID);
 				if (validatePacket (receivedPacket)) {
-					if (network.destinationCanSend) {
+					if (network.DestinationCanSend) {
 						Console.WriteLine ("The received packet is valid!");
 						network.destinationToSource = receivedPacket;
 						// Besoin de regarder l'ordre des packets!

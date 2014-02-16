@@ -30,7 +30,7 @@ namespace TP1
 		protected override void sendPackets ()
 		{
 
-			if (network.sourceCanSend) {
+			if (network.SourceCanSend) {
 				Console.WriteLine ("Sending the packet");
 				//network.setSourcePacket (buffer.getFrame ().ToBytes ());
 				network.setSourcePacket (buffer.GetNextElement ().ToBytes ());
@@ -48,7 +48,7 @@ namespace TP1
 		{
 			Frame ack;
 			Byte[] receivedPacket;
-			if (network.sourceCanReceive) {
+			if (network.SourceCanReceive) {
 				receivedPacket = network.sourceFromDestination;
 				Console.WriteLine ("I have received a packet!");
 				/*

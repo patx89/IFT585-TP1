@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace TP1
 {
-	public class Network
+	public class Network : INotifyPropertyChanged
 	{
 		//Sender part
 		public Byte[] sourceToDestination = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
@@ -16,24 +16,91 @@ namespace TP1
 		//Receiver part
 		public Byte[] sourceFromDestination = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
 		public Byte[] destinationToSource = new byte[int.Parse (ConfigurationManager.AppSettings ["BufferSize"])];
-		public bool sourceCanSend = true;
-		public bool sourceCanReceive = false;
-		public bool destinationCanSend = true;
-		public bool destinationCanReceive = false;
+		private bool sourceCanSend = true;
+        private bool sourceCanReceive = false;
+        private bool destinationCanSend = true;
+        private bool destinationCanReceive = false;
+
+
+        public bool SourceCanSend
+        {
+            get { return sourceCanSend; }
+
+            set {
+                if (this.sourceCanSend != value)
+                {
+                    this.sourceCanSend = value;
+                    OnPropertyChanged("SourceCanSend");
+                }            
+            }
+        }
+
+        public bool SourceCanReceive
+        {
+            get { return sourceCanReceive; }
+
+            set
+            {
+                if (this.sourceCanReceive != value)
+                {
+                    this.sourceCanReceive = value;
+                    OnPropertyChanged("SourceCanReceive");
+                }
+            }
+        }
+
+        public bool DestinationCanSend
+        {
+            get { return destinationCanSend; }
+
+            set
+            {
+                if (this.destinationCanSend != value)
+                {
+                    this.destinationCanSend = value;
+                    OnPropertyChanged("DestinationCanSend");
+                }
+            }
+        }
+
+        public bool DestinationCanReceive
+        {
+            get { return destinationCanReceive; }
+
+            set
+            {
+                if (this.destinationCanReceive != value)
+                {
+                    this.destinationCanReceive = value;
+                    OnPropertyChanged("DestinationCanReceive");
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
 
 		public void setSourcePacket (Byte[] frame)
 		{
-			if (this.sourceCanSend) {
+			if (this.SourceCanSend) {
 				sourceToDestination = frame;
-				this.sourceCanSend = false;
+				this.SourceCanSend = false;
 			}
 		}
 
 		public void setDestinationPacket (Byte[] frame)
 		{
-			if (this.destinationCanSend) {
+			if (this.DestinationCanSend) {
 				destinationToSource = frame;
-				this.destinationCanSend = false;
+				this.DestinationCanSend = false;
 			}
 		}
 		// From source
@@ -42,7 +109,7 @@ namespace TP1
 			private get { return sourceToDestination; }
 			set {
 				sourceToDestination = value;
-				sourceCanSend = false;
+				SourceCanSend = false;
 			}
 		}
 
@@ -58,13 +125,13 @@ namespace TP1
 			private get { return destinationToSource; }
 			set {
 				destinationToSource = value;
-				destinationCanSend = false;
+				DestinationCanSend = false;
 			}
 		}
 
 		public Byte[] SourceFromDestination {
 			get { 
-				sourceHasReceived = false;
+				SourceHasReceived = false;
 				return sourceFromDestination;
 			}
 			private set { sourceFromDestination = value; }
@@ -74,6 +141,9 @@ namespace TP1
 		{
 			Thread workerOne = new Thread (() => this.SourceToDestination ());
 			Thread workerTwo = new Thread (() => this.DestinationToSource ());
+
+            workerOne.Start();
+            workerTwo.Start();
 		}
 
 		private void SourceToDestination ()
@@ -113,5 +183,5 @@ namespace TP1
 				}
 			}
 		}
-	}
+    }
 }

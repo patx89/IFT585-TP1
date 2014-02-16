@@ -26,6 +26,7 @@ namespace TP1
 
         #region Attributes
 
+
         private int _readPos = 0;
         private int _writePos = 0;
         private int _count = 0;
@@ -59,8 +60,10 @@ namespace TP1
             private set
             {
                 if (this._isEmpty != value)
+                {
                     this._isEmpty = value;
-                OnPropertyChanged("IsEmpty");
+                    OnPropertyChanged("IsEmpty");
+                }
             }
         }
 
@@ -70,8 +73,10 @@ namespace TP1
             private set
             {
                 if (this._count != value)
+                {
                     this._count = value;
-                OnPropertyChanged("Count");
+                    OnPropertyChanged("Count");
+                }
             }
         }
 
@@ -141,7 +146,6 @@ namespace TP1
 
 
         #endregion
-        
 
         #region Methods
 
@@ -165,10 +169,11 @@ namespace TP1
         /// </summary>
         /// <returns>The index of the next non-null value.</returns>
         public int GetNextElementIndex()
-        {   
-            int startingPos = _readPos;
+        {
             int elementPos = -1;
 
+            int startingPos = _readPos;
+                
 
             if (!IsEmpty)
             {
@@ -184,6 +189,7 @@ namespace TP1
 
                 } while (_readPos != startingPos);
             }
+            
 
             return elementPos;
         }
@@ -205,6 +211,8 @@ namespace TP1
         /// <returns>Whether or not the element was successfully added.</returns>
         public bool Push(T element)
         {
+
+
             if (IsFull) return false;
 
             int startingPos = _writePos;
@@ -245,9 +253,6 @@ namespace TP1
             return elementToRemove;
         }
 
-
         #endregion
-
-
     }
 }
