@@ -2,10 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Projet/EStation.cs">
     <Files>
-      <File FileName="Projet/DataFrame.cs" Line="12" Column="1" />
-      <File FileName="Projet/Network.cs" Line="47" Column="1" />
-      <File FileName="Projet/EStation.cs" Line="28" Column="62" />
-      <File FileName="Projet/Station.cs" Line="11" Column="11" />
+      <File FileName="Projet/EStation.cs" Line="28" Column="3" />
+      <File FileName="Projet/FrameBuffer.cs" Line="25" Column="1" />
+      <File FileName="Projet/CircularBuffer.cs" Line="216" Column="1" />
+      <File FileName="Projet/Station.cs" Line="12" Column="23" />
+      <File FileName="Projet/RStation.cs" Line="52" Column="19" />
+      <File FileName="Projet/Network.cs" Line="21" Column="6" />
+      <File FileName="Projet/Program.cs" Line="23" Column="17" />
+      <File FileName="Projet/app.config" Line="10" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

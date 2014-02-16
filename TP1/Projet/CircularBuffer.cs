@@ -158,7 +158,7 @@ namespace TP1
         public T GetElement(int index)
         {
             return this[index];
-        }        
+        }
 
         /// <summary>
         /// Iterate through the buffer to get the next non-null value and returns its position. Note: Returns -1 if none are found.
@@ -187,6 +187,16 @@ namespace TP1
             return elementPos;
         }
 
+        public T GetNextElement()
+        {
+            int index = GetNextElementIndex();
+
+            if (index > -1)
+                return this[index];
+
+            return default(T);
+        }
+
         /// <summary>
         /// Insert an element to the next empty spot. If none are found, it will return false;
         /// </summary>
@@ -205,6 +215,7 @@ namespace TP1
                     Count++;
                     if (ElementAdded != null) ElementAdded(this, new CircularBufferEventArgs(element));
                     if (Count == Length) IsFull = true;
+                    IsEmpty = false;
                     return true;
                 }
                 _writePos = (_writePos + 1) % Length;
