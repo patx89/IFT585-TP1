@@ -15,6 +15,8 @@ namespace TP1
 		{
 			//Console.WriteLine ("Hello World!");
 
+
+
 			Network network = new Network ();
 			Station sender = new EStation (network, ConfigurationManager.AppSettings ["SourceFilePath"]);
 			Station receiver = new RStation (network, ConfigurationManager.AppSettings ["DestinationFilePath"]);
