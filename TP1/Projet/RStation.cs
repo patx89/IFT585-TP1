@@ -49,7 +49,9 @@ namespace TP1
 							myFile = new FileStream (_destinationFile, FileMode.OpenOrCreate);
 							fileWriter = new BinaryWriter (myFile);
 							//fileWriter.Write (receivedPacket.data);
-							fileWriter.Write (receivePackets);
+
+							// Unknown error, commenting for now
+							//fileWriter.Write (receivePackets);
 							fileWriter.Flush ();
 							fileWriter.Close ();
 						} catch (Exception ex) {

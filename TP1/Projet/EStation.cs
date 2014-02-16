@@ -33,7 +33,7 @@ namespace TP1
 			if (network.sourceCanSend) {
 				Console.WriteLine ("Sending the packet");
 				//network.setSourcePacket (buffer.getFrame ().ToBytes ());
-				network.setSourcePacket (buffer.getNext ());
+				network.setSourcePacket (buffer.GetNextElement ());
 			} else
 				Console.WriteLine ("Unable to send any packets for X,Y reason");
 		}

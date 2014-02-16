@@ -5,11 +5,15 @@ namespace TP1
 {
 	public class Program
 	{
+		public enum Protocols
+		{
+		}
+
 		public static void Main (string[] args)
 		{
-			//Console.WriteLine ("Hello World!");
+			Console.WriteLine ("Hello World!");
 
-			Network network = new Network ();
+			/*Network network = new Network ();
 			Station sender = new EStation (network, ConfigurationManager.AppSettings ["SourceFilePath"]);
 			Station receiver = new RStation (network, ConfigurationManager.AppSettings ["DestinationFilePath"]);
 
@@ -20,7 +24,7 @@ namespace TP1
 			sender.start ();
 
 			Console.WriteLine ("Starting the receiver!");
-			receiver.start ();
+			receiver.start ();*/
 
 		}
 	}

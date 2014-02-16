@@ -51,6 +51,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="app.config" />
     <None Include="Ressources\EnonceTP.pdf" />
+    <None Include="Ressources\Format des trames.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
